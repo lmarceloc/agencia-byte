@@ -258,22 +258,22 @@
           <p data-i18n="contato.subtitle">Deixe seus dados e entraremos em contato em breve.</p>
         </div>
 
-        <form class="contato__form" id="contactForm" data-reveal data-reveal-delay="1">
+        <form class="contato__form" id="contactForm" action="https://submit-form.com/R5CqxuPLN" method="POST" data-reveal data-reveal-delay="1">
           <div class="form-group">
             <label for="name" data-i18n="contato.name-label">Nome</label>
-            <input type="text" id="name" data-i18n-placeholder="contato.name-placeholder" placeholder="Seu nome" required>
+            <input type="text" id="name" name="name" data-i18n-placeholder="contato.name-placeholder" placeholder="Seu nome" required>
             <div class="form__error"></div>
           </div>
 
           <div class="form-group">
             <label for="email" data-i18n="contato.email-label">E-mail</label>
-            <input type="email" id="email" data-i18n-placeholder="contato.email-placeholder" placeholder="seu@email.com" required>
+            <input type="email" id="email" name="email" data-i18n-placeholder="contato.email-placeholder" placeholder="seu@email.com" required>
             <div class="form__error"></div>
           </div>
 
           <div class="form-group">
             <label for="message" data-i18n="contato.message-label">Mensagem</label>
-            <textarea id="message" data-i18n-placeholder="contato.message-placeholder" placeholder="Conte-nos sobre seu projeto..." required></textarea>
+            <textarea id="message" name="message" data-i18n-placeholder="contato.message-placeholder" placeholder="Conte-nos sobre seu projeto..." required></textarea>
             <div class="form__error"></div>
           </div>
 

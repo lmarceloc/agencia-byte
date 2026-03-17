@@ -3,7 +3,7 @@
    Nav, scroll-reveal, form validation, micro-interactions
    ============================================================================ */
 
-(function() {
+(function () {
   'use strict';
 
   const nav = document.querySelector('.nav');
@@ -199,27 +199,51 @@
       e.preventDefault();
 
       if (validateForm()) {
-        contactForm.style.opacity = '0';
-        contactForm.style.transform = 'scale(0.95)';
-        contactForm.style.pointerEvents = 'none';
+        const submitBtn = contactForm.querySelector('.form__submit') || contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
 
-        setTimeout(() => {
-          contactForm.style.display = 'none';
-          formSuccess.style.display = 'block';
-          formSuccess.style.animation = 'fadeIn 0.6s ease forwards';
-          formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 300);
+        // Setup payload
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData.entries());
 
-        contactForm.reset();
+        // UI Feedback: Loading
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
 
-        setTimeout(() => {
-          contactForm.style.display = 'flex';
-          contactForm.style.opacity = '1';
-          contactForm.style.transform = 'scale(1)';
-          contactForm.style.pointerEvents = 'auto';
-          contactForm.style.animation = 'fadeIn 0.6s ease forwards';
-          formSuccess.style.display = 'none';
-        }, 5000);
+        fetch(contactForm.action, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify(data),
+        })
+          .then(response => {
+            if (response.ok) {
+              contactForm.style.opacity = '0';
+              contactForm.style.transform = 'scale(0.95)';
+              contactForm.style.pointerEvents = 'none';
+
+              setTimeout(() => {
+                contactForm.style.display = 'none';
+                formSuccess.style.display = 'block';
+                formSuccess.style.animation = 'fadeIn 0.6s ease forwards';
+                formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              }, 300);
+
+              contactForm.reset();
+            } else {
+              throw new Error('Submission failed');
+            }
+          })
+          .catch(error => {
+            console.error('Formspark Error:', error);
+            alert('Ops! Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente.');
+          })
+          .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+          });
       }
     });
 
@@ -263,7 +287,7 @@
 
   const buttons = document.querySelectorAll('.btn');
   buttons.forEach(button => {
-    button.addEventListener('click', function(e) {
+    button.addEventListener('click', function (e) {
       const ripple = document.createElement('span');
       const rect = this.getBoundingClientRect();
       const size = Math.max(rect.width, rect.height);
@@ -287,6 +311,6 @@
     document.documentElement.style.scrollBehavior = 'smooth';
   });
 
-console.log('✨ Agencia Byte premium site loaded');
+  console.log('✨ Agencia Byte premium site loaded');
 
 })();
