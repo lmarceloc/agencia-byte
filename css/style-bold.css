@@ -214,6 +214,53 @@ p {
 }
 
 /* ============================================================================
+   LANGUAGE SELECTOR
+   ============================================================================ */
+
+.language-selector {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: all 0.2s;
+  padding: 0;
+}
+
+.lang-btn:hover {
+  background: var(--color-bg-light);
+  border-color: var(--color-primary-orange);
+}
+
+.lang-btn.active {
+  background: var(--color-primary-orange);
+  border-color: var(--color-primary-orange);
+}
+
+@media (max-width: 768px) {
+  .language-selector {
+    gap: 0.25rem;
+  }
+
+  .lang-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1.25rem;
+  }
+}
+
+/* ============================================================================
    BUTTONS
    ============================================================================ */
 
