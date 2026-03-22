@@ -33,6 +33,8 @@ const translations = {
     'servicos.2-text': 'Agentes inteligentes que trabalham 24/7. LLMs integrados, pipelines de dados, processamento inteligente. Reduza custos operacionais drasticamente.',
     'servicos.3-title': 'Integrações & APIs',
     'servicos.3-text': 'Conectamos seus sistemas. ERPs, CRMs, plataformas externas — fluxos de dados fluidos, seguros, confiáveis.',
+    'servicos.4-title': 'Análise de Dados',
+    'servicos.4-text': 'Dashboards em tempo real com Power BI. Entregamos dados estratégicos de suas campanhas de ADs, insights profundos e relatórios que impulsionam decisões inteligentes.',
 
     // PROCESSO
     'processo.title': 'Nosso Processo',
@@ -70,7 +72,7 @@ const translations = {
     'footer.services-1': 'Desenvolvimento',
     'footer.services-2': 'Automação IA',
     'footer.services-3': 'Integrações',
-    'footer.services-4': 'Consultoria',
+    'footer.services-4': 'Dados',
     'footer.company-title': 'Empresa',
     'footer.company-1': 'Sobre',
     'footer.company-2': 'Processo',
@@ -113,6 +115,8 @@ const translations = {
     'servicos.2-text': 'Intelligent agents that work 24/7. Integrated LLMs, data pipelines, intelligent processing. Drastically reduce operational costs.',
     'servicos.3-title': 'Integrations & APIs',
     'servicos.3-text': 'We connect your systems. ERPs, CRMs, external platforms — fluid, secure, reliable data flows.',
+    'servicos.4-title': 'Data Analysis',
+    'servicos.4-text': 'Real-time dashboards with Power BI. We deliver strategic data from your ad campaigns, deep insights and reports that drive intelligent decisions.',
 
     // PROCESSO
     'processo.title': 'Our Process',
@@ -150,7 +154,7 @@ const translations = {
     'footer.services-1': 'Development',
     'footer.services-2': 'AI Automation',
     'footer.services-3': 'Integrations',
-    'footer.services-4': 'Consulting',
+    'footer.services-4': 'Data Analysis',
     'footer.company-title': 'Company',
     'footer.company-1': 'About',
     'footer.company-2': 'Process',
@@ -193,6 +197,8 @@ const translations = {
     'servicos.2-text': 'Agentes inteligentes que trabajan 24/7. LLMs integrados, pipelines de datos, procesamiento inteligente. Reduce costos operacionales drásticamente.',
     'servicos.3-title': 'Integraciones y APIs',
     'servicos.3-text': 'Conectamos tus sistemas. ERPs, CRMs, plataformas externas — flujos de datos fluidos, seguros, confiables.',
+    'servicos.4-title': 'Análisis de Datos',
+    'servicos.4-text': 'Paneles en tiempo real con Power BI. Entregamos datos estratégicos de tus campañas de anuncios, insights profundos y reportes que impulsen decisiones inteligentes.',
 
     // PROCESSO
     'processo.title': 'Nuestro Proceso',
@@ -230,7 +236,7 @@ const translations = {
     'footer.services-1': 'Desarrollo',
     'footer.services-2': 'Automatización IA',
     'footer.services-3': 'Integraciones',
-    'footer.services-4': 'Consultoría',
+    'footer.services-4': 'Análisis de Datos',
     'footer.company-title': 'Empresa',
     'footer.company-1': 'Sobre',
     'footer.company-2': 'Proceso',
