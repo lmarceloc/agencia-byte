@@ -34,7 +34,7 @@ const translations = {
     'servicos.3-title': 'Integrações & APIs',
     'servicos.3-text': 'Conectamos seus sistemas. ERPs, CRMs, plataformas externas — fluxos de dados fluidos, seguros, confiáveis.',
     'servicos.4-title': 'Análise de Dados',
-    'servicos.4-text': 'Dashboards em tempo real com Power BI. Entregamos dados estratégicos de suas campanhas de ADs, insights profundos e relatórios que impulsionam decisões inteligentes.',
+    'servicos.4-text': 'Suas métricas de Ads em um novo nível. Domine seus dados em dashboards dinâmicos. Oferecemos visão estratégica e relatórios de alto impacto para você tomar decisões rápidas e lucrativas.',
 
     // PROCESSO
     'processo.title': 'Nosso Processo',
