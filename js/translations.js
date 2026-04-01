@@ -116,7 +116,7 @@ const translations = {
     'servicos.3-title': 'Integrations & APIs',
     'servicos.3-text': 'We connect your systems. ERPs, CRMs, external platforms — fluid, secure, reliable data flows.',
     'servicos.4-title': 'Data Analysis',
-    'servicos.4-text': 'Real-time dashboards with Power BI. We deliver strategic data from your ad campaigns, deep insights and reports that drive intelligent decisions.',
+    'servicos.4-text': 'Your Ads metrics at a new level. Master your data with dynamic dashboards. We offer strategic vision and high-impact reports so you can make fast and profitable decisions.',
 
     // PROCESSO
     'processo.title': 'Our Process',
@@ -198,7 +198,7 @@ const translations = {
     'servicos.3-title': 'Integraciones y APIs',
     'servicos.3-text': 'Conectamos tus sistemas. ERPs, CRMs, plataformas externas — flujos de datos fluidos, seguros, confiables.',
     'servicos.4-title': 'Análisis de Datos',
-    'servicos.4-text': 'Paneles en tiempo real con Power BI. Entregamos datos estratégicos de tus campañas de anuncios, insights profundos y reportes que impulsen decisiones inteligentes.',
+    'servicos.4-text': 'Tus métricas de Ads en un nuevo nivel. Domina tus datos con dashboards dinámicos. Ofrecemos visión estratégica e informes de alto impacto para que tomes decisiones rápidas y lucrativas.',
 
     // PROCESSO
     'processo.title': 'Nuestro Proceso',
