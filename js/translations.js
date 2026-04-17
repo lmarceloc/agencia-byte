@@ -3,6 +3,7 @@ const translations = {
     // NAV
     'nav.sobre': 'Sobre',
     'nav.servicos': 'Serviços',
+    'nav.clientes': 'Clientes',
     'nav.processo': 'Processo',
     'nav.tecnologias': 'Tecnologias',
     'nav.contato': 'Contato',
@@ -23,6 +24,10 @@ const translations = {
     'sobre.card-1-text': 'Sistemas personalizados que escalam com seu negócio.',
     'sobre.card-2-title': 'IA & Automação',
     'sobre.card-2-text': 'Inteligência que trabalha 24/7 por você.',
+
+    // CLIENTES
+    'clientes.title': 'Clientes',
+    'clientes.subtitle': 'Cases de sucesso que transformamos com nossas soluções.',
 
     // SERVIÇOS
     'servicos.title': 'Nossos Serviços',
@@ -85,6 +90,7 @@ const translations = {
     // NAV
     'nav.sobre': 'About',
     'nav.servicos': 'Services',
+    'nav.clientes': 'Clients',
     'nav.processo': 'Process',
     'nav.tecnologias': 'Technologies',
     'nav.contato': 'Contact',
@@ -105,6 +111,10 @@ const translations = {
     'sobre.card-1-text': 'Custom systems that scale with your business.',
     'sobre.card-2-title': 'AI & Automation',
     'sobre.card-2-text': 'Intelligence that works 24/7 for you.',
+
+    // CLIENTES
+    'clientes.title': 'Clients',
+    'clientes.subtitle': 'Success cases we\'ve transformed with our solutions.',
 
     // SERVIÇOS
     'servicos.title': 'Our Services',
@@ -167,6 +177,7 @@ const translations = {
     // NAV
     'nav.sobre': 'Sobre',
     'nav.servicos': 'Servicios',
+    'nav.clientes': 'Clientes',
     'nav.processo': 'Proceso',
     'nav.tecnologias': 'Tecnologías',
     'nav.contato': 'Contacto',
@@ -187,6 +198,10 @@ const translations = {
     'sobre.card-1-text': 'Sistemas personalizados que escalan con tu negocio.',
     'sobre.card-2-title': 'IA y Automatización',
     'sobre.card-2-text': 'Inteligencia que trabaja 24/7 para ti.',
+
+    // CLIENTES
+    'clientes.title': 'Clientes',
+    'clientes.subtitle': 'Casos de éxito que transformamos con nuestras soluciones.',
 
     // SERVIÇOS
     'servicos.title': 'Nuestros Servicios',

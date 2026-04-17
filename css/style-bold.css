@@ -603,6 +603,178 @@ p {
 }
 
 /* ============================================================================
+   CLIENTES
+   ============================================================================ */
+
+.clientes {
+  padding: clamp(4rem, 15vw, 8rem) 0;
+  background: var(--color-bg-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.clientes__header {
+  margin-bottom: clamp(2rem, 8vw, 4rem);
+  text-align: center;
+}
+
+.clientes__header h2 {
+  margin-bottom: var(--space-md);
+}
+
+.clientes__slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.slider-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  gap: var(--space-lg);
+  flex: 1;
+}
+
+.slider-track::-webkit-scrollbar {
+  display: none;
+}
+
+.cliente-card {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  background: white;
+  border: 3px solid var(--color-primary-orange);
+  border-radius: 8px;
+  padding: var(--space-xl);
+  transition: all 0.3s;
+  position: relative;
+}
+
+.cliente-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(249, 115, 22, 0.2);
+}
+
+.cliente-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.cliente-card__avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary-orange), var(--color-primary-pink));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: var(--text-xl);
+  font-family: var(--font-display);
+  flex-shrink: 0;
+}
+
+.cliente-card__name {
+  font-size: var(--text-xl);
+  font-weight: 900;
+  color: var(--color-text-dark);
+  margin-bottom: 0.25rem;
+}
+
+.cliente-card__instagram {
+  font-size: var(--text-sm);
+  color: var(--color-primary-pink);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.cliente-card__instagram:hover {
+  text-decoration: underline;
+}
+
+.cliente-card__text {
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.cliente-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-primary-green);
+  border-radius: 20px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary-green);
+}
+
+.slider-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-primary-orange);
+  color: white;
+  border: none;
+  font-size: var(--text-2xl);
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.slider-btn:hover {
+  background: var(--color-primary-pink);
+  transform: scale(1.1);
+}
+
+.slider-btn:active {
+  transform: scale(0.95);
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: var(--space-lg);
+}
+
+.slider-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #E5E7EB;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.slider-dot.active {
+  background: var(--color-primary-orange);
+  transform: scale(1.2);
+}
+
+/* ============================================================================
    PROCESSO
    ============================================================================ */
 

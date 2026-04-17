@@ -311,6 +311,69 @@
     document.documentElement.style.scrollBehavior = 'smooth';
   });
 
+  /* ====== 11. CLIENTES SLIDER ====== */
+
+  const sliderTrack = document.querySelector('.slider-track');
+  const sliderBtns = document.querySelectorAll('.slider-btn');
+  const sliderDots = document.querySelector('.slider-dots');
+  const clienteCards = document.querySelectorAll('.cliente-card');
+
+  if (sliderTrack && clienteCards.length > 0) {
+    // Create dots
+    clienteCards.forEach((_, index) => {
+      const dot = document.createElement('button');
+      dot.classList.add('slider-dot');
+      if (index === 0) dot.classList.add('active');
+      dot.setAttribute('aria-label', `Slide ${index + 1}`);
+      sliderDots.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.slider-dot');
+
+    function updateActiveDot(index) {
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    function getCurrentSlideIndex() {
+      const cardWidth = clienteCards[0].clientWidth;
+      const scrollLeft = sliderTrack.scrollLeft;
+      return Math.round(scrollLeft / (cardWidth + 24)); // 24 = gap
+    }
+
+    // Navigation buttons
+    sliderBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cardWidth = clienteCards[0].clientWidth;
+        const scrollAmount = cardWidth + 24; // gap
+
+        if (btn.classList.contains('slider-btn--prev')) {
+          sliderTrack.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        } else {
+          sliderTrack.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Update dots on scroll
+    sliderTrack.addEventListener('scroll', () => {
+      const index = getCurrentSlideIndex();
+      updateActiveDot(index);
+    });
+
+    // Click on dots
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        const cardWidth = clienteCards[0].clientWidth;
+        sliderTrack.scrollTo({
+          left: index * (cardWidth + 24),
+          behavior: 'smooth'
+        });
+      });
+    });
+  }
+
   console.log('✨ Agencia Byte premium site loaded');
 
 })();
