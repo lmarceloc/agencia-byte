@@ -329,6 +329,8 @@
     });
 
     const dots = document.querySelectorAll('.slider-dot');
+    const prevBtn = document.querySelector('.slider-btn--prev');
+    const nextBtn = document.querySelector('.slider-btn--next');
 
     function updateActiveDot(index) {
       dots.forEach((dot, i) => {
@@ -340,6 +342,23 @@
       const cardWidth = clienteCards[0].clientWidth;
       const scrollLeft = sliderTrack.scrollLeft;
       return Math.round(scrollLeft / (cardWidth + 24)); // 24 = gap
+    }
+
+    function updateButtonStates() {
+      const currentIndex = getCurrentSlideIndex();
+      const maxIndex = clienteCards.length - 1;
+
+      // Disable prev button on first slide
+      if (prevBtn) {
+        prevBtn.style.opacity = currentIndex === 0 ? '0.3' : '1';
+        prevBtn.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+      }
+
+      // Disable next button on last slide
+      if (nextBtn) {
+        nextBtn.style.opacity = currentIndex === maxIndex ? '0.3' : '1';
+        nextBtn.style.pointerEvents = currentIndex === maxIndex ? 'none' : 'auto';
+      }
     }
 
     // Navigation buttons
@@ -356,10 +375,15 @@
       });
     });
 
-    // Update dots on scroll
+    // Update dots and button states on scroll
+    let scrollTimeout;
     sliderTrack.addEventListener('scroll', () => {
-      const index = getCurrentSlideIndex();
-      updateActiveDot(index);
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const index = getCurrentSlideIndex();
+        updateActiveDot(index);
+        updateButtonStates();
+      }, 100);
     });
 
     // Click on dots
@@ -372,6 +396,9 @@
         });
       });
     });
+
+    // Initialize button states
+    updateButtonStates();
   }
 
   console.log('✨ Agencia Byte premium site loaded');
