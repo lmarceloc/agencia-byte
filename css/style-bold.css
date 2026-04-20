@@ -1231,6 +1231,24 @@ p {
   color: var(--color-primary-orange);
 }
 
+.footer__social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: #CBD5E1;
+  margin-top: 0.75rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+  font-size: 1.5rem;
+}
+
+.footer__social:hover {
+  color: var(--color-primary-orange);
+  background: rgba(249, 115, 22, 0.1);
+}
+
 .footer__divider {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: var(--space-lg);
