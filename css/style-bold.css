@@ -1293,10 +1293,104 @@ p {
   }
 }
 
-@media (min-width: 1024px) {
-  .servicos__grid {
-    grid-template-columns: repeat(3, 1fr);
+/* ============================================================================
+   EXIT INTENT MODAL
+   ============================================================================ */
+
+.exit-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.exit-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.exit-modal {
+  background: white;
+  border-radius: 12px;
+  padding: clamp(2rem, 5vw, 3rem);
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  text-align: center;
+  border: 3px solid var(--color-primary-orange);
+  box-shadow: 0 24px 48px rgba(249, 115, 22, 0.2);
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.exit-modal-overlay.active .exit-modal {
+  transform: translateY(0);
+}
+
+.exit-modal__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.25rem;
+  transition: color 0.2s;
+}
+
+.exit-modal__close:hover {
+  color: var(--color-primary-orange);
+}
+
+.exit-modal__icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.exit-modal__title {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+}
+
+.exit-modal__text {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.exit-modal__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 480px) {
+  .exit-modal__actions {
+    flex-direction: row;
+    justify-content: center;
   }
+}
+
+/* ============================================================================
+   RESPONSIVE
+   ============================================================================ */
+
+@media (min-width: 768px) {
 
   .service:nth-child(1) {
     grid-column: span 2;

@@ -401,6 +401,84 @@
     updateButtonStates();
   }
 
+  /* ====== 12. EXIT INTENT MODAL ====== */
+
+  const exitModal = document.getElementById('exitModal');
+  const exitModalClose = document.getElementById('exitModalClose');
+  const exitModalCloseBtn = document.querySelector('.exit-modal__close');
+  const exitModalCta = document.getElementById('exitModalCta');
+
+  if (exitModal) {
+    let modalShown = false;
+    let hasScrolledPast20Percent = false;
+
+    // Check if user scrolled past 20%
+    window.addEventListener('scroll', () => {
+      const scrollPercent = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
+      if (scrollPercent > 0.2) {
+        hasScrolledPast20Percent = true;
+      }
+    }, { passive: true });
+
+    // Desktop: mouse leaving viewport
+    document.addEventListener('mouseleave', (e) => {
+      if (e.clientY <= 0 && hasScrolledPast20Percent && !modalShown) {
+        showExitModal();
+      }
+    });
+
+    // Mobile: back button / beforeunload
+    let lastTouchY = 0;
+    document.addEventListener('touchstart', (e) => {
+      lastTouchY = e.touches[0].clientY;
+    }, { passive: true });
+
+    document.addEventListener('touchmove', (e) => {
+      const currentTouchY = e.touches[0].clientY;
+      const scrollThreshold = window.innerHeight * 0.2;
+
+      // Swipe down from top to reveal address bar (potential exit)
+      if (currentTouchY - lastTouchY > 50 && window.scrollY === 0 && hasScrolledPast20Percent && !modalShown) {
+        showExitModal();
+      }
+      lastTouchY = currentTouchY;
+    }, { passive: true });
+
+    function showExitModal() {
+      modalShown = true;
+      exitModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function hideExitModal() {
+      exitModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close handlers
+    if (exitModalCloseBtn) {
+      exitModalCloseBtn.addEventListener('click', hideExitModal);
+    }
+
+    if (exitModalClose) {
+      exitModalClose.addEventListener('click', hideExitModal);
+    }
+
+    // Close on overlay click
+    exitModal.addEventListener('click', (e) => {
+      if (e.target === exitModal) {
+        hideExitModal();
+      }
+    });
+
+    // CTA click - allow navigation
+    if (exitModalCta) {
+      exitModalCta.addEventListener('click', () => {
+        hideExitModal();
+      });
+    }
+  }
+
   console.log('✨ Agencia Byte premium site loaded');
 
 })();
