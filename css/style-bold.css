@@ -215,6 +215,26 @@ p {
 }
 
 /* ============================================================================
+   NAV SOCIAL
+   ============================================================================ */
+
+.nav__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: var(--color-text-dark);
+  transition: all 0.2s;
+  border-radius: 4px;
+}
+
+.nav__social:hover {
+  color: var(--color-primary-orange);
+  background: var(--color-bg-light);
+}
+
+/* ============================================================================
    LANGUAGE SELECTOR
    ============================================================================ */
 
