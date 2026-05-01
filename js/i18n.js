@@ -3,43 +3,75 @@ class I18n {
   constructor() {
     this.currentLanguage = this.getStoredLanguage() || 'pt';
     this.init();
+    console.log('[i18n] Initialized with language:', this.currentLanguage);
   }
 
   getStoredLanguage() {
-    return localStorage.getItem('language');
+    try {
+      return localStorage.getItem('language');
+    } catch (e) {
+      console.warn('[i18n] localStorage not available:', e);
+      return null;
+    }
   }
 
   setStoredLanguage(lang) {
-    localStorage.setItem('language', lang);
+    try {
+      localStorage.setItem('language', lang);
+    } catch (e) {
+      console.warn('[i18n] Could not save language to localStorage:', e);
+    }
   }
 
   init() {
+    if (!window.translations) {
+      console.error('[i18n] translations object not found! Make sure translations.js is loaded first.');
+      return;
+    }
+
     this.setupLanguageButtons();
     this.translate(this.currentLanguage);
     this.updateActiveButton();
   }
 
   setupLanguageButtons() {
-    document.querySelectorAll('.lang-btn').forEach(btn => {
+    const buttons = document.querySelectorAll('.lang-btn');
+    console.log('[i18n] Found', buttons.length, 'language buttons');
+
+    if (buttons.length === 0) {
+      console.warn('[i18n] No language buttons found!');
+      return;
+    }
+
+    buttons.forEach(btn => {
+      // Set initial active state
+      if (btn.dataset.lang === this.currentLanguage) {
+        btn.classList.add('active');
+      }
+
       btn.addEventListener('click', (e) => {
         e.preventDefault();
+        e.stopPropagation();
         const lang = btn.dataset.lang;
+        console.log('[i18n] Language button clicked:', lang);
         this.changeLanguage(lang);
       });
     });
   }
 
   changeLanguage(lang) {
+    console.log('[i18n] Changing language to:', lang);
     this.currentLanguage = lang;
     this.setStoredLanguage(lang);
     this.translate(lang);
     this.updateActiveButton();
 
     // Update html lang attribute
-    document.documentElement.lang = lang;
+    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang === 'es' ? 'es-ES' : 'en-US';
 
     // Update meta tags for SEO
     this.updateMetaTags(lang);
+    console.log('[i18n] Language changed to:', lang);
   }
 
   updateActiveButton() {
@@ -54,13 +86,19 @@ class I18n {
   translate(lang) {
     const t = translations[lang];
 
-    if (!t) return;
+    if (!t) {
+      console.error('[i18n] Translation not found for language:', lang);
+      return;
+    }
+
+    let updated = 0;
 
     // Update all elements with data-i18n attribute
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.dataset.i18n;
       if (t[key]) {
         el.textContent = t[key];
+        updated++;
       }
     });
 
@@ -69,6 +107,7 @@ class I18n {
       const key = el.dataset.i18nHtml;
       if (t[key]) {
         el.innerHTML = t[key];
+        updated++;
       }
     });
 
@@ -77,8 +116,11 @@ class I18n {
       const key = el.dataset.i18nPlaceholder;
       if (t[key]) {
         el.placeholder = t[key];
+        updated++;
       }
     });
+
+    console.log('[i18n] Updated', updated, 'elements for language:', lang);
   }
 
   updateMetaTags(lang) {
@@ -122,8 +164,12 @@ class I18n {
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
+    console.log('[i18n] DOMContentLoaded - initializing I18n');
     window.i18n = new I18n();
   });
 } else {
+  console.log('[i18n] DOM already loaded - initializing I18n');
   window.i18n = new I18n();
 }
+
+console.log('[i18n] Script loaded. Translations available:', !!window.translations);
