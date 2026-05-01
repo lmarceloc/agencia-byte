@@ -3,10 +3,11 @@
    Nav, scroll-reveal, form validation, micro-interactions
    ============================================================================ */
 
-(function () {
-  'use strict';
+document.addEventListener('DOMContentLoaded', function () {
+  (function () {
+    'use strict';
 
-  const nav = document.querySelector('.nav');
+    const nav = document.querySelector('.nav');
   const hamburger = document.querySelector('.nav__hamburger');
   const navMenu = document.querySelector('.nav__menu');
   const navLinks = document.querySelectorAll('.nav__link');
@@ -421,7 +422,7 @@
     }, { passive: true });
 
     // Desktop: mouse leaving viewport
-    document.addEventListener('mouseleave', (e) => {
+    document.documentElement.addEventListener('mouseleave', (e) => {
       if (e.clientY <= 0 && hasScrolledPast20Percent && !modalShown) {
         showExitModal();
       }
@@ -481,4 +482,5 @@
 
   console.log('✨ Agencia Byte premium site loaded');
 
-})();
+  })();
+});

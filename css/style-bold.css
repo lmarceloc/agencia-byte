@@ -683,11 +683,6 @@ p {
   position: relative;
 }
 
-.cliente-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 32px rgba(249, 115, 22, 0.2);
-}
-
 .cliente-card__header {
   display: flex;
   align-items: center;
