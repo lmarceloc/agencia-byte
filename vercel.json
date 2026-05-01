@@ -1,0 +1,13 @@
+{
+  "buildCommand": "",
+  "outputDirectory": ".",
+  "devCommand": "vite",
+  "framework": null,
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
