@@ -147,6 +147,12 @@ p {
   border-radius: 4px;
 }
 
+.nav__logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
 .nav__link {
   font-weight: 600;
   font-size: var(--text-sm);
